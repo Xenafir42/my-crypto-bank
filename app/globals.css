@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --background: #08070d;
+  --foreground: #efeafe;
+  --surface: #13101d;
+  --surface-soft: #1b1528;
+  --border-soft: #31234d;
+  --accent: #a78bfa;
+  --accent-strong: #8b5cf6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #08070d;
+    --foreground: #efeafe;
+    --surface: #13101d;
+    --surface-soft: #1b1528;
+    --border-soft: #31234d;
+    --accent: #a78bfa;
+    --accent-strong: #8b5cf6;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), "Segoe UI", sans-serif;
+  background-image:
+    radial-gradient(circle at 12% 10%, rgba(139, 92, 246, 0.2), transparent 40%),
+    radial-gradient(circle at 88% 85%, rgba(167, 139, 250, 0.14), transparent 36%),
+    linear-gradient(180deg, #09070f 0%, #08070d 45%, #090713 100%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  .page-wrap {
+    @apply min-h-screen text-white;
+  }
+
+  .surface-card {
+    background: linear-gradient(180deg, rgba(27, 21, 40, 0.9) 0%, rgba(19, 16, 29, 0.92) 100%);
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.34);
+  }
+
+  .accent-button {
+    @apply text-white font-bold transition-all;
+    background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  }
+
+  .accent-button:hover {
+    filter: brightness(1.08);
+  }
+}
